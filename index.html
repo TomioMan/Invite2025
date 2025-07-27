@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-Day</title>
+    <link rel="stylesheet" href="style.css">
+    <audio id="myAudio" src="its_showtime.mp3" loop ></audio>
+</head>
+<body>
+    <div id="overlay">
+        <img id="myImage" src="obalka1.png" onmouseover="swapImage(true)" onmouseout="swapImage(false)">
+        <p>&lpar;open on a computer&rpar;</p>
+    </div>
+    <div class="main">
+        <div class="content">
+            <div class="basics">
+                <div class="basics_content">
+                    <h1>Bithtday Invite!</h1>
+                    <p style="text-align: center;">If you got sent this, it means you are invited to my birthday party!</p>
+                    <h2>What will the party be about:</h2>
+                    <p>WE'RE GOING BOWLING GANG!!! that's right, we're gonna play with loong wooden pins and BIG heavy balls!</p>
+                    
+                </div>
+            </div>
+            <div class="extra_info">
+                <h1 style="font-size: 60px; font-weight: 10000;">More info:</h1>
+                <div class="extra_info_content">
+                    <h2>Where and when will it be:</h2>
+                    <p>On the First of August! on the day of my birthday! gosh i cant remember the last time I had a birthday party ON THE ACTUAL DATE of my birthday! anyway, enough ranting, to the schedule:</p>
+                    <p>We have to be at the bowling place at 11:45. There, we'll start bowling at 12, bowl for an hour, have an hour break, and then bowl another hour, and at 15:00 well get out, and um... the rest I didnt figure out yet... we'll do stuff!</p>
+                </div>
+                <div class="extra_info_content">
+                    <h2>What gifts to bring:</h2>
+                    <p>Please, nothing big, I'll accept anything but, something small. around like, maybe the 300kc mark MAXIMUM! I love handmade stuff, even if it's not anything crazy, it warms my heart to have something that YOU YOURSELF made. I'll accept money, but like, come on, get creative ;)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle the audio playback and overlay
+        const audio = document.getElementById('myAudio');
+        const overlay = document.getElementById('overlay');
+
+        let hasPlayed = false;
+
+        const audioVolume = 0.2;
+
+        function setVolume(level) {
+            audio.volume = Math.min(Math.max(level, 0), 1);
+        }
+
+        document.body.style.overflow = 'hidden';
+
+        overlay.addEventListener('click', () => {
+            if (!hasPlayed) {
+                setVolume(audioVolume);
+                audio.play();
+                hasPlayed = true;
+            }
+
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Image hover effect
+        function swapImage(isHovering) {
+            const image = document.getElementById("myImage");
+            image.src = isHovering ? "obalka2.png" : "obalka1.png";
+        }
+    </script>
+</body>
+</html>
